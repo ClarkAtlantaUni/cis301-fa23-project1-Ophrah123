@@ -8,8 +8,10 @@ class Student(Human):
             classes: The names of the classes the student is taking. A student may take zero or more classes.
             gpa:The student’s grade point average.
     """
-    def __init__(self, name, classes, gpa):
-       raise NotImplementedError('not implemented yet')
+    def __init__(self):
+        self.name = None
+        self.classes = None
+        self.gpa = None
 
     def says(self):
         """
@@ -17,14 +19,16 @@ class Student(Human):
         Returns:
             a String statement that says "This class is too much work".
         """
-        raise NotImplementedError('not implemented yet')
+        return "This class is too much work."
 
     def __str__(self):
         """
         Returns:
             a String that describes this Student.
         """
-        raise NotImplementedError('not implemented yet')
+        return (f"{self.name} has a GPA of {self.gpa} and is taking 3 classes:{self.classes}. "
+                f"{self.name} says {self.says}")
+
 
 
 
