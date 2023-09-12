@@ -20,10 +20,22 @@ def parse_cli_argv(argv):
     
 if __name__ == "__main__":
     college = Student()
-    college.name = input("Please enter your name.")
-    college.classes = input("Please enter your classes for the semester seperated by a comma.")
-    college.gpa = float(input("Please enter your GPA."))
+    college.name = sys.argv[0]
+    if college.name ==college.name:
+        pass
+    else:
+        print("Please enter a name with only letters.")
+    college.classes = sys.argv[3:-1]
+    if college.classes ==str(college.classes):
+        pass
+    else:
+        print("Please enter your correct classes.")
+    college.gpa = sys.argv[1]
+    if college.gpa ==float(college.gpa):
+        pass
+    else:
+        print("Please enter a correct GPA.")
     college.says()
-    print(college)
+    #print(college)
 
     main()

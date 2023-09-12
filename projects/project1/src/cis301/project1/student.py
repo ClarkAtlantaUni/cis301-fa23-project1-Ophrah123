@@ -26,7 +26,7 @@ class Student(Human):
         Returns:
             a String that describes this Student.
         """
-        return (f"{self.name} has a GPA of {self.gpa} and is taking 3 classes:{self.classes}. "
+        return (f"{self.name} has a GPA of {self.gpa} and is taking len{self.classes} classes:{self.classes}. "
                 f"{self.name} says {self.says}")
 
 
