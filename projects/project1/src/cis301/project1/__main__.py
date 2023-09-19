@@ -1,6 +1,9 @@
 import sys
-from student import Student
-from __init__ import main
+
+from cis301.project1.student import Student
+
+
+#from student import Student
 
 def main(args=None):
     """
@@ -8,34 +11,52 @@ def main(args=None):
         Student, and prints a description of the student to
         standard out by invoking its toString method.
     """
+    print("This is the argv:", sys.argv)
     if args is None:
         args = sys.argv[1:]
 
     print (args)
-    print(f"Missing command line arguments")
-    exit(0)    
+    #print(f"Missing command line arguments")
+    parse_cli_argv(args)
+    #Read in all text from the string and ensure all values are correct
+    exit(0)
 
-def parse_cli_argv(argv):
-    raise NotImplementedError('not implemented yet')
+
+def isvalidGPA(gpa):
+    try:
+        if float(gpa):
+            return True
+        else:
+            return False
+    except:
+        return False
+
+
+def parse_cli_argv(argv, gpa=None, classes=None):
+    if len(argv) < 2:
+        print("Please enter the correct information: Name, GPA & Classes.")
+        return
+    #name of student
+    name = argv[0]
+    if name == argv[0]:
+        pass
+    else:
+        print("Please enter a name.")
+    #gpa
+    gpa = argv[1]
+    if not isvalidGPA(gpa):
+        print("Please enter a valid number for:GPA ")
+        return
+    #classes
+    name = argv[2:]
+    #create a new student instance
+    student=Student(name, gpa, classes)
+    #print student description
+    print(student)
+
+
+    #raise NotImplementedError('not implemented yet')
     
 if __name__ == "__main__":
-    college = Student()
-    college.name = sys.argv[0]
-    if college.name ==college.name:
-        pass
-    else:
-        print("Please enter a name with only letters.")
-    college.classes = sys.argv[3:-1]
-    if college.classes ==str(college.classes):
-        pass
-    else:
-        print("Please enter your correct classes.")
-    college.gpa = sys.argv[1]
-    if college.gpa ==float(college.gpa):
-        pass
-    else:
-        print("Please enter a correct GPA.")
-    college.says()
-    #print(college)
-
-    main()
+    main(["ali", 4.0, "301, 431, 475"])
+    #main()
