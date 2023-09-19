@@ -48,7 +48,7 @@ def parse_cli_argv(argv, gpa=None, classes=None):
         print("Please enter a valid number for:GPA ")
         return
     #classes
-    name = argv[2:]
+    classes = argv[2:]
     #create a new student instance
     student=Student(name, gpa, classes)
     #print student description
